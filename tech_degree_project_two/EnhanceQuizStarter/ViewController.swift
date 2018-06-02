@@ -107,18 +107,23 @@ class ViewController: UIViewController {
         quizManager.QuestionAnswered += 1
         let selectedQuestion = currentQuestion
         
-        playGameStartSound()
+        
         if (sender === trueButton && quizManager.check_Answer(answer: trueButton.title(for: .normal)!, qeustion: selectedQuestion!) ){
             questionField.text = "Correct!"
+            playGameStartSound()
             
         }else if(sender === falseButton && quizManager.check_Answer(answer: falseButton.title(for: .normal)!, qeustion: selectedQuestion!) ){
             questionField.text = "Correct!"
+            playGameStartSound()
         }else if(sender === option_three && quizManager.check_Answer(answer: option_three.title(for: .normal)!, qeustion: selectedQuestion!) ){
             questionField.text = "Correct!"
-        }else if (sender === trueButton && quizManager.check_Answer(answer: option_four.title(for: .normal)!, qeustion: selectedQuestion!) ){
+            playGameStartSound()
+        }else if (sender === option_four && quizManager.check_Answer(answer: option_four.title(for: .normal)!, qeustion: selectedQuestion!) ){
             questionField.text = "Correct!"
+            playGameStartSound()
         }else {
             questionField.text = "Sorry, wrong answer"
+            
         }
         
 
