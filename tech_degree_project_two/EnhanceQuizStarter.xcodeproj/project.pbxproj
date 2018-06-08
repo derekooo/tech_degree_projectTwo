@@ -16,6 +16,7 @@
 		F703C54F20BF70F5008F4416 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F703C54E20BF70F5008F4416 /* Question.swift */; };
 		F703C55120BF7BE6008F4416 /* QuizManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F703C55020BF7BE6008F4416 /* QuizManager.swift */; };
 		F703C55320BFE74E008F4416 /* QuizsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F703C55220BFE74E008F4416 /* QuizsProvider.swift */; };
+		F7E89EDE20CA1FEE00B5E35E /* IncorrectBuzz.wav in Resources */ = {isa = PBXBuildFile; fileRef = F7E89EDD20CA1FED00B5E35E /* IncorrectBuzz.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F703C54E20BF70F5008F4416 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F703C55020BF7BE6008F4416 /* QuizManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManager.swift; sourceTree = "<group>"; };
 		F703C55220BFE74E008F4416 /* QuizsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizsProvider.swift; sourceTree = "<group>"; };
+		F7E89EDD20CA1FED00B5E35E /* IncorrectBuzz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = IncorrectBuzz.wav; path = ../../../../../Downloads/BoutTimeAssetsAndMockups/AudioClips/IncorrectBuzz.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				972A72B92056F06C0059EF4A /* LaunchScreen.storyboard */,
 				972A72BC2056F06C0059EF4A /* Info.plist */,
 				972A72C22056F0E40059EF4A /* GameSound.wav */,
+				F7E89EDD20CA1FED00B5E35E /* IncorrectBuzz.wav */,
 				F703C54E20BF70F5008F4416 /* Question.swift */,
 				F703C55020BF7BE6008F4416 /* QuizManager.swift */,
 				F703C55220BFE74E008F4416 /* QuizsProvider.swift */,
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				972A72C32056F0E40059EF4A /* GameSound.wav in Resources */,
+				F7E89EDE20CA1FEE00B5E35E /* IncorrectBuzz.wav in Resources */,
 				972A72BB2056F06C0059EF4A /* LaunchScreen.storyboard in Resources */,
 				972A72B82056F06C0059EF4A /* Assets.xcassets in Resources */,
 				972A72B62056F06C0059EF4A /* Main.storyboard in Resources */,

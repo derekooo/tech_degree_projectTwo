@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     let quizManager = QuizManagers()    //Model of MVC
     var currentQuestion: Question? = nil //keep track current question, then modify the view
     var gameSound: SystemSoundID = 0
+    var gameSoundTwo: SystemSoundID = 0
     
     
     // MARK: - Outlets
@@ -33,6 +34,7 @@ class ViewController: UIViewController {
         loadGameStartSound()
         playGameStartSound()
         newDisplayQuestion()
+        loadIncorrectSoud()
     }
     
     // MARK: - Helpers
@@ -42,9 +44,18 @@ class ViewController: UIViewController {
         let soundUrl = URL(fileURLWithPath: path!)
         AudioServicesCreateSystemSoundID(soundUrl as CFURL, &gameSound)
     }
+    func loadIncorrectSoud(){
+        let path = Bundle.main.path(forResource: "IncorrectBuzz", ofType: "wav")
+        let soundUrl = URL(fileURLWithPath: path!)
+        AudioServicesCreateSystemSoundID(soundUrl as CFURL, &gameSoundTwo)
+
+    }
     
     func playGameStartSound() {
         AudioServicesPlaySystemSound(gameSound)
+    }
+    func playIncorrectSound() {
+        AudioServicesPlaySystemSound(gameSoundTwo)
     }
     
     func newDisplayQuestion(){
@@ -122,6 +133,7 @@ class ViewController: UIViewController {
             questionField.text = "Correct!"
             playGameStartSound()
         }else {
+            playIncorrectSound()
             questionField.text = "Sorry, wrong answer"
             
         }
