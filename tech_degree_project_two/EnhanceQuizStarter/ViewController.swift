@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var currentQuestion: Question? = nil //keep track current question, then modify the view
     var gameSound: SystemSoundID = 0
     var gameSoundTwo: SystemSoundID = 0
+    var gameSoundThree: SystemSoundID = 0
     
     
     // MARK: - Outlets
@@ -35,9 +36,11 @@ class ViewController: UIViewController {
         playGameStartSound()
         newDisplayQuestion()
         loadIncorrectSoud()
+        loadGameoverSound()
     }
     
     // MARK: - Helpers
+    
     
     func loadGameStartSound() {
         let path = Bundle.main.path(forResource: "GameSound", ofType: "wav")
@@ -50,12 +53,20 @@ class ViewController: UIViewController {
         AudioServicesCreateSystemSoundID(soundUrl as CFURL, &gameSoundTwo)
 
     }
-    
+    func loadGameoverSound(){
+        let path = Bundle.main.path(forResource: "NFF-ghost-clock", ofType: "wav")
+        let soundUrl = URL(fileURLWithPath: path!)
+        AudioServicesCreateSystemSoundID(soundUrl as CFURL, &gameSoundThree)
+        
+    }
     func playGameStartSound() {
         AudioServicesPlaySystemSound(gameSound)
     }
     func playIncorrectSound() {
         AudioServicesPlaySystemSound(gameSoundTwo)
+    }
+    func playGameoverSound(){
+        AudioServicesPlayAlertSound(gameSoundThree)
     }
     
     func newDisplayQuestion(){
@@ -85,8 +96,13 @@ class ViewController: UIViewController {
         option_four.isHidden = true
         
         playAgainButton.isHidden = false
+        playGameoverSound()
+        if quizManager.quiz_score < quizManager.quizRound {
+            questionField.text = "Way to go!\nYou got \(quizManager.quiz_score) out of \(quizManager.quizRound) correct!"
+        }else{
+            questionField.text = "Perefct!\nYou got \(quizManager.quiz_score) out of \(quizManager.quizRound) correct!"
+        }
         
-        questionField.text = "Way to go!\nYou got \(quizManager.quiz_score) out of \(quizManager.quizRound) correct!"
     }
     
     func newNextRound() {
@@ -152,6 +168,7 @@ class ViewController: UIViewController {
         
         //nextRound()
         quizManager.QuestionAnswered = 0
+        quizManager.quiz_score = 0
         quizManager.quizs.question_order = [] //reset the order of questions 
         newNextRound()
     }
